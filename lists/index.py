@@ -41,3 +41,30 @@ print(f"In-place normalized: {raw_marks}")  # [50.0, 75.0, 100.0]
 sensor_data = [12, -999, 15, 14, 5000, 13]
 clean_data = filter_outliers(sensor_data, 0, 100)
 print(f"Filtered new list: {clean_data}")   # [12, 15, 14, 13]
+
+
+
+# 1. Binary Search Implementation (Iterative - O(log N) time, O(1) space)
+def binary_search(sorted_list, target):
+    low, high = 0, len(sorted_list) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if sorted_list[mid] == target:
+            return mid
+        elif sorted_list[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+# 2. Sorting with Custom Keys
+students = [
+    {"name": "Aarav", "marks": 88, "age": 20},
+    {"name": "Zoya", "marks": 95, "age": 19},
+    {"name": "Kabir", "marks": 88, "age": 18},
+]
+
+# Sort by marks descending (-x["marks"]), then by age ascending (x["age"]) on ties
+ranked = sorted(students, key=lambda x: (-x["marks"], x["age"]))
+for s in ranked:
+    print(f"{s['name']}: Marks={s['marks']}, Age={s['age']}")
