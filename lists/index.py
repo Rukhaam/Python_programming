@@ -65,7 +65,7 @@ students = [
 ]
 
 # Sort by marks descending (-x["marks"]), then by age ascending (x["age"]) on ties
-ranked = sorted(students, key=lambda x: (-x["marks"], x["age"]))
+ranked = (students, key=lambda x: (-x["marks"], x["age"]))
 for s in ranked:
     print(f"{s['name']}: Marks={s['marks']}, Age={s['age']}")
 
