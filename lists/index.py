@@ -68,3 +68,18 @@ students = [
 ranked = sorted(students, key=lambda x: (-x["marks"], x["age"]))
 for s in ranked:
     print(f"{s['name']}: Marks={s['marks']}, Age={s['age']}")
+
+nums = [5, 2, 9, 1, 5, 6]
+# Sort in-place using a custom key (absolute value)
+nums.sort(key=abs)
+print(f"Sorted by absolute value: {nums}")  # Output: [1, 2, 5, 5, 6, 9]
+
+
+details = [
+    {"name": "Alice", "age": 30},
+    {"name": "Bob", "age": 25},
+    {"name": "Charlie", "age": 35}
+]
+print(sorted(details, key=lambda x: x["age"])) # This will print "Bob" since 'details' is a list of dictionaries
+
+
